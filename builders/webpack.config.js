@@ -22,9 +22,10 @@ let dinamicConfigs = {
   local_url: 'http://localhost',
   local_libs_url: 'http://localhost:8080/',
   local_images_url: 'http://localhost:8080/assets/images/',
-  homologa_url: 'https://maubrsp-clubedabolsa.netlify.com/',
-  homologa_libs_url: 'https://maubrsp-clubedabolsa.netlify.com/',
-  homologa_images_url: 'https://maubrsp-clubedabolsa.netlify.com/images/',
+  homologa_url: 'https://pure-js-boilerplate-example.netlify.com/',
+  homologa_libs_url: 'https://pure-js-boilerplate-example.netlify.com/',
+  homologa_images_url:
+    'https://pure-js-boilerplate-example.netlify.com/images/',
   js: './src/libs/pages',
   html: 'src/doom'
 };
