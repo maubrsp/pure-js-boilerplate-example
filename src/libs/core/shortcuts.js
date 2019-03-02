@@ -1,9 +1,3 @@
-import anime from 'animejs';
-import { getBoundingRect } from './../ui/doom';
-
-const timeDuration = 0; // 400;
-const timeDelay = 0; // 100;
-
 /**
  * Load and inject inline svg sprites
  */

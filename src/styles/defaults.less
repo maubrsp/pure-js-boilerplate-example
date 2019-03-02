@@ -1,0 +1,72 @@
+// @import './vars.less';
+
+.brand {
+  display: inline-block;
+  height: 60px;
+  width: 12rem;
+  line-height: 60px;
+  svg {
+    display: inline-block;
+    fill: @color4;
+    height: 100%;
+    width: 60px;
+  }
+  h1,
+  span {
+    display: block;
+    line-height: 60px;
+    padding-left: 10px;
+    padding-top: 0px;
+    font-size: @fontSize1*0.8;
+    float: right;
+  }
+}
+
+.social-buttons {
+  padding: 10vh 0px;
+  a {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    svg {
+      height: 36px;
+      pointer-events: none;
+      width: 50px;
+    }
+  }
+}
+
+.list-features {
+  padding-top: 5vh;
+  text-align: center;
+  display: inline-block;
+  height: auto;
+  section {
+    height: auto;
+    float: left;
+    width: 33%;
+    display: block;
+    text-align: left;
+    padding: 4vh 2vh;
+    svg {
+      height: 38px;
+      width: 16%;
+    }
+    div {
+      float: right;
+      width: 80%;
+      padding: 0px;
+      h4 {
+        font-size: @fontSize4;
+        display: block;
+        padding: 0px 0px 0.7vh;
+      }
+      p {
+        display: block;
+        font-size: @fontSize6;
+        padding: 0px;
+        color: @color4;
+      }
+    }
+  }
+}

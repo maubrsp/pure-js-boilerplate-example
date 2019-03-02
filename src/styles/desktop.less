@@ -3,224 +3,76 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900');
 
 @import './fix.less';
-@import './nav.less';
-@import './vars.less';
-@import './footer.less';
+// @import './vars.less';
+
+@color1: #fcdb00;
+@color2: #232527;
+@color3: #ffffff;
+@color4: #929292;
+
+@paddingHorizontal: 6vw;
+@areaBlackPaddingHorizontal: 3vw;
+
+@footerAdressWidth: 28%;
+@footerButtonsWidth: 70%;
+
+@footerEmailInputWidth: 79%;
+@footerEmailButtonWidth: 18%;
+
+@headerMenuFontSize: 25px;
+
+@fontSize1: 2.5rem;
+@fontSize2: 1.8rem;
+@fontSize3: 1.5rem;
+@fontSize4: 1.3em;
+@fontSize5: 1.1rem;
+@fontSize6: 1rem;
 
 html {
   font-family: 'Source Sans Pro';
+}
+body {
+  min-width: 650px;
+  overflow-x: auto;
 }
 
 .area {
   min-height: 100vh;
   width: 100%;
-  padding: 60px 6vw 0px;
-}
-
-.area-yellow {
-  color: @black;
-  background-color: @yellow;
-  padding-top: 150px;
-  svg {
-    fill: @black;
-  }
-
-  article {
-    section {
-      padding: 0px 3vw;
-      div {
-        width: 50%;
-        padding-top: 15vh;
-        color: @black;
-        h2 {
-          padding: 20px 0px;
-          font-size: 34px;
-        }
-        h4 {
-          padding: 20px 0px;
-          font-size: 20px;
-          font-weight: 400;
-        }
-        p {
-          font-size: 17px;
-        }
-        .stores {
-          width: 100%;
-          margin-left: -8px;
-          padding-top: 5vh;
-          svg {
-            height: 50px;
-            width: 70px;
-          }
-        }
-      }
-    }
-  }
-
-  .tablet-tynione {
-    position: absolute;
-    height: 445px;
-    width: 300px;
-    top: 30vh;
-    right: 9vw;
-    .tablet-ilustration {
-      height: 100%;
-    }
-    .brand {
-      position: absolute;
-      top: 205px;
-      left: 60px;
-      h1 {
-        color: @yellow;
-      }
-    }
-  }
-}
-
-.area-white {
-  color: @black;
-  background-color: @white;
-  text-align: center;
-  padding-top: 15vh;
-  h3 {
-    font-size: 35px;
-  }
-  p {
-    font-size: 19px;
-    padding: 15px 8vw;
-  }
-}
-
-.area-black {
-  color: @white;
-  background-color: @black;
-  text-align: center;
-  padding-top: 15vh;
-  svg {
-    fill: @yellow;
-  }
-  h3 {
-    font-size: 35px;
-    color: @yellow;
-  }
-  p {
-    font-size: 19px;
-    padding: 15px 8vw;
-    color: @gray;
-  }
-  .botton-email {
-    padding: 30px 8vw;
-    position: relative;
-    input {
-      height: 48px;
-      border: none;
-      border-radius: 7px;
-      padding: 0px 15px;
-      font-size: 18px;
-      width: 82%;
-      margin-right: 2%;
-      outline: none;
-    }
-    button {
-      width: 15%;
-      height: 48px;
-      font-size: 18px;
-      padding: 0px 18px;
-      background-color: @white;
-      border-radius: 7px;
-      font-weight: 900;
-      border: none;
-      cursor: pointer;
-      outline: none;
-      overflow: hidden;
-      position: relative;
-      .txt-effect {
-        pointer-events: none;
-        z-index: 1;
-      }
-      .bg-effect {
-        position: absolute;
-        left: 50%;
-        width: 0%;
-        height: 102%;
-        top: -1%;
-        background-color: @yellow;
-        opacity: 0.5;
-        pointer-events: none;
-        z-index: 0;
-      }
-      &:hover {
-        background-color: @yellow;
-      }
-    }
-  }
-}
-
-.brand {
   display: inline-block;
-  height: 60px;
-  width: 195px;
-  line-height: 60px;
-  svg {
-    display: inline-block;
-    fill: @gray;
-    height: 100%;
-    width: 60px;
-  }
-  h1,
-  span {
-    display: block;
-    line-height: 60px;
-    padding-left: 10px;
-    padding-top: 0px;
-    font-size: 35px;
-    float: right;
-  }
+  height: auto;
 }
 
-.social-buttons {
-  padding: 10vh 0px;
-  a {
-    cursor: pointer;
-    position: relative;
-    display: inline-block;
-    svg {
-      height: 36px;
-      pointer-events: none;
-      width: 50px;
-    }
+@media all and (max-width: 768px) {
+  @paddingHorizontal: 2vw;
+  @areaBlackPaddingHorizontal: 1vw;
+  @footerAdressWidth: 33%;
+  @footerButtonsWidth: 64%;
+  @footerEmailInputWidth: 60%;
+  @footerEmailButtonWidth: 28%;
+  @headerMenuFontSize: 18px;
+
+  .area {
+    padding: 60px @paddingHorizontal 0px;
   }
+
+  @import (multiple) './nav.less';
+  @import (multiple) './footer.less';
+  @import (multiple) './area-black.less';
+  @import (multiple) './area-white.less';
+  @import (multiple) './area-yellow.less';
+  @import (multiple) './defaults.less';
 }
 
-.list-features {
-  padding-top: 5vh;
-  display: block;
-  text-align: center;
-  section {
-    float: left;
-    width: 33%;
-    display: block;
-    text-align: left;
-    padding: 2%;
-    svg {
-      height: 38px;
-      width: 16%;
-    }
-    div {
-      float: right;
-      width: 80%;
-      padding: 0px;
-      h4 {
-        font-size: 17px;
-        display: block;
-        padding: 0px 0px 10px;
-      }
-      p {
-        display: block;
-        font-size: 12px;
-        padding: 0px;
-        color: @gray;
-      }
-    }
+@media all and (min-width: 769px) {
+  .area {
+    padding: 60px @paddingHorizontal 0px;
   }
+
+  @import (multiple) './nav.less';
+  @import (multiple) './footer.less';
+  @import (multiple) './area-black.less';
+  @import (multiple) './area-white.less';
+  @import (multiple) './area-yellow.less';
+  @import (multiple) './defaults.less';
 }

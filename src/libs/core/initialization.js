@@ -1,7 +1,30 @@
+import anime from 'animejs';
+import { initMenuPosition, menuObserveScrollChange } from './nav';
+
+export function initializeView() {
+  return new Promise((resolve, reject) => {
+    const prerender = document.getElementsByClassName('preloader')[0];
+
+    initMenuPosition();
+    anime({
+      targets: prerender,
+      duration: 250,
+      elasticity: 2,
+      opacity: 0,
+      delay: 200,
+      complete: () => {
+        prerender.parentNode.removeChild(prerender);
+        menuObserveScrollChange(0);
+        resolve();
+      }
+    });
+  });
+}
+
 const hidePrerender = () => {
   return new Promise((resolve, reject) => {
     anime({
-      targets: document.getElementsByClassName('prerender'),
+      targets: document.getElementsByClassName('preloader'),
       duration: 2000,
       elasticity: 2,
       opacity: 0,

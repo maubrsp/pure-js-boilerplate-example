@@ -32,13 +32,25 @@ export function menuObserveScrollChange(posY) {
     console.log('show');
     window.app.menuState = 'normal';
     showMenuEffect();
-    //set to normal
   } else if (posY < -26 && menuState === 'normal') {
     window.app.menuState = 'fixed';
     console.log('hide');
     hideMenuEffect();
-    // set to fixed
   }
+}
+
+export function initMenuPosition() {
+  const menu = window.app.menu;
+  anime({
+    targets: menu,
+    paddingLeft: '0',
+    paddingRight: '0',
+    paddingTop: '0',
+    paddingBottom: '0',
+    top: -150,
+    duration: 0,
+    elasticity: 0
+  });
 }
 
 const showMenuEffect = () => {
@@ -52,6 +64,7 @@ const showMenuEffect = () => {
     paddingRight: '10vw',
     paddingTop: '6vh',
     paddingBottom: '2vh',
+    top: 0,
     height: 150,
     duration: 350,
     elasticity: 0

@@ -73,8 +73,6 @@ var config = {
     chunkFilename: 'libs/[id].chunk.js'
   },
   resolve: {
-    /*root: [],*/
-    //设置require或import的时候可以不需要带后缀
     extensions: ['.json', '.js', '.less', '.css', '.ejs']
   },
   module: {
@@ -84,14 +82,14 @@ var config = {
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader'
-        }) /*ExtractTextPlugin.extract("style", "css")*/
+        })
       },
       {
         test: /\.less$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader!less-loader'
-        }) /* ExtractTextPlugin.extract("css!less")*/
+        })
       },
       {
         test: /\.js$/,
@@ -105,15 +103,15 @@ var config = {
         test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader',
         options: {
-          name: '../fonts/[name].[ext]?[hash]' //输出目录以及名称
+          name: '../fonts/[name].[ext]?[hash]'
         }
       },
       {
         test: /\.(png|jpg|gif|svg)$/i,
         loader: 'url-loader',
         options: {
-          limit: 30720 * 7, //30720 30kb 图片转base64。设置图片大小，小于此数则转换。
-          name: 'images/[name].' + tmpHash + '.[ext]' //输出目录以及名称
+          limit: 30720 * 7,
+          name: 'images/[name].' + tmpHash + '.[ext]'
         }
       }
     ]
@@ -121,8 +119,7 @@ var config = {
   plugins: [
     new CleanPlugin([dir]), // 清空目录文件夹
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'common' // 将公共模块提取，生成名为`vendors`的chunk
-      //minChunks: 3 // 提取至少3个模块共有的部分
+      name: 'common'
     }),
 
     new ExtractTextPlugin('styles/[name].' + tmpHash + '.css'),
@@ -132,7 +129,6 @@ var config = {
   ],
 
   devServer: {
-    // contentBase: "./",
     host: 'localhost',
     port: dinamicConfigs.localport, //端口
     inline: true,
@@ -143,14 +139,11 @@ var config = {
 module.exports = config;
 
 Object.keys(htmlEntries).forEach(function(key) {
-  // console.log("generate htmls" , key)
-
   var conf = {
     filename: key + '.html',
     template: htmlEntries[key],
     inject: false,
     hash: false,
-    // pageData: pageData[key.split(".")[0]],
     production: production,
     currentHash: tmpHash,
     url: urls.url,

@@ -56,7 +56,7 @@
   sizes="16x16"
   href="<%= patch + '/favicon-16x16.png' %>"
 />
-<link rel="manifest" href="<%= patch + '/manifest.json'%>" />
+<!-- <link rel="manifest" href="<%= patch + '/manifest.json'%>" /> -->
 <link
   rel="mask-icon"
   href="<%= patch + '/safari-pinned-tab.svg'%>"
@@ -81,6 +81,16 @@
   #main {
     max-width: 100%;
     width: 100%;
+  }
+
+  .preloader {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fcdb00;
+    z-index: 9999;
+    position: fixed;
+    top: 0px;
+    left: 0px;
   }
 
   .loading {

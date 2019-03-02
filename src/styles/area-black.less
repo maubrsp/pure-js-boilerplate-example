@@ -1,0 +1,66 @@
+// @import './vars.less';
+
+.area-black {
+  color: @color3;
+  background-color: @color2;
+  text-align: center;
+  padding-top: 15vh;
+  svg {
+    fill: @color1;
+  }
+  h3 {
+    font-size: @fontSize1;
+    color: @color1;
+  }
+  p {
+    font-size: @fontSize4;
+    padding: 1.6rem @areaBlackPaddingHorizontal;
+    color: @color4;
+  }
+  .botton-email {
+    padding: 30px @areaBlackPaddingHorizontal;
+    position: relative;
+    input {
+      height: 48px;
+      border: none;
+      border-radius: 7px;
+      padding: 0px 15px;
+      font-size: @fontSize4;
+      width: @footerEmailInputWidth;
+      margin-right: 2%;
+      outline: none;
+    }
+    button {
+      width: @footerEmailButtonWidth;
+      height: 48px;
+      font-size: @fontSize4;
+      padding: 0px 18px;
+      background-color: @color3;
+      border-radius: 7px;
+      font-weight: 900;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      overflow: hidden;
+      position: relative;
+      .txt-effect {
+        pointer-events: none;
+        z-index: 1;
+      }
+      .bg-effect {
+        position: absolute;
+        left: 50%;
+        width: 0%;
+        height: 102%;
+        top: -1%;
+        background-color: @color1;
+        opacity: 0.5;
+        pointer-events: none;
+        z-index: 0;
+      }
+      &:hover {
+        background-color: @color1;
+      }
+    }
+  }
+}

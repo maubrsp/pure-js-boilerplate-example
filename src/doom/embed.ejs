@@ -6,13 +6,14 @@ params.production %>
     var deps = <%= "'" + fname + "'" %>
     var hash = <%= "'" + fhash + "'" %>
     var libs_url = './';
+    var minWidth = 650;
   //   <%= "'" + flibs_url + "'" %>
     var production = <%= "'" + fproduction + "'" %>
     deps = deps.split(',')
     function loadCommons(){
         var script = document.createElement('script');
         script.type = 'text/javascript';
-        if(window.clientWidth < 850 ){
+        if(window.clientWidth < minWidth ){
             script.src = libs_url + 'libs/'+deps[0]+".mobile." + hash + ".js"
         }else{
             script.src = libs_url + 'libs/'+deps[0]+"." + hash + ".js"
@@ -25,8 +26,8 @@ params.production %>
             if(deps[i] !== "common"){
                 var script = document.createElement('script');
                 script.type = 'text/javascript';
-                console.log(">> ", window.innerWidth , (window.clientWidth < 850 ) )
-                if(window.innerWidth < 850 ){
+                console.log(">> ", window.innerWidth , (window.clientWidth < minWidth ) )
+                if(window.innerWidth < minWidth ){
                     script.src = libs_url + 'libs/'+deps[i]+".mobile." + hash + ".js"
                 }else{
                     script.src = libs_url + 'libs/'+deps[i]+"." + hash + ".js"
@@ -38,7 +39,7 @@ params.production %>
             if(deps[i] !== "common"){
                 var script = document.createElement('link');
                 script.type = 'text/css';
-                if(window.innerWidth < 850 ){
+                if(window.innerWidth < minWidth ){
                     script.href = libs_url + 'styles/'+deps[i]+".mobile." + hash + ".css"
                 }else{
                     script.href = libs_url +'styles/'+deps[i]+"." + hash + ".css"
