@@ -1,0 +1,37 @@
+<% var data = [ [ { label: "Expample", href: "/teste"}, { label: "Shop", href:
+"/teste"}, { label: "License", href: "/teste"}, ], [ { label: "Contact", href:
+"/teste"}, { label: "About", href: "/teste"}, { label: "Privacy", href:
+"/teste"}, { label: "Terms", href: "/teste"}, ], [ { label: "Download", href:
+"/teste"}, { label: "Support", href: "/teste"}, { label: "Documents", href:
+"/teste"}, ], [ { label: "Media", href: "/teste"}, { label: "Blog", href:
+"/teste"}, { label: "Forums", href: "/teste"} ] ]; %>
+<footer>
+  <div class="footer-container">
+    <address>
+      <span>
+        <span class="address-title">HALOVIERNAM LTD</span>
+        <span class="address-info">66, Dang Van ngu, Dong Da </span>
+        <span class="address-info">Hanoi, Vietnam</span>
+        <span class="address-email" title="California"
+          >contact@haloviernam.com</span
+        >
+        <span class="address-info">+844 35149182</span>
+      </span>
+    </address>
+    <div class="footer-links">
+      <% data.forEach(function(area){ %>
+      <ul>
+        <% area.forEach(function(item){ %>
+        <li>
+          <a href="<%=item.href%>" target="_blank">
+            <%=item.label%>
+            <div class="button-line"></div>
+            <div class="mouse-area"></div>
+          </a>
+        </li>
+        <% }); %>
+      </ul>
+      <% }); %>
+    </div>
+  </div>
+</footer>

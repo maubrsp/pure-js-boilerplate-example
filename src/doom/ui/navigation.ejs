@@ -1,0 +1,22 @@
+<% var params = templateParams; var data = [{ label: 'Features', href:
+'./Features' },{ label: 'Support', href: 'http://www.bla.com' },{ label: 'Blog',
+href: 'http://www.bla.com' } ] %>
+
+<nav id="menu">
+  <div class="brand">
+    <svg>
+      <use xlink:href="#finger"></use>
+    </svg>
+    <h1>tinyone</h1>
+  </div>
+  <ul class="header-menu">
+    <% data.forEach(function(button){ %>
+    <li>
+      <a href="<%=button.href%>" class="spacer" target="_blank">
+        <%=button.label%>
+      </a>
+    </li>
+    <% }); %>
+  </ul>
+  <div class="header-border"></div>
+</nav>

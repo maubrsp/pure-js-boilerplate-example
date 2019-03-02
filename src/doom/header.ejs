@@ -1,0 +1,179 @@
+<% var params = templateParams; var patch = params.patch;var data = params.data
+%>
+<meta charset="UTF-8" />
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"
+/>
+<title>pure-js-boilerplate-example</title>
+<meta name="author" content="TecDom" />
+<meta name="description" content="TecDom" />
+<meta name="keywords" content="TecDom" />
+<meta http-equiv="Cache-Control" content="no-transform " />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<link
+  rel="apple-touch-icon"
+  sizes="57x57"
+  href="<%= patch + '/apple-touch-icon-57x57.png' %>"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="60x60"
+  href="<%= patch + '/apple-touch-icon-60x60.png' %>"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="72x72"
+  href="<%= patch + '/apple-touch-icon-72x72.png' %>"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="76x76"
+  href="<%= patch + '/apple-touch-icon-76x76.png' %>"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="114x114"
+  href="<%= patch + '/apple-touch-icon-114x114.png' %>"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="120x120"
+  href="<%= patch + '/apple-touch-icon-120x120.png' %>"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="<%= patch + '/favicon-32x32.png' %>"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="<%= patch + '/favicon-16x16.png' %>"
+/>
+<link rel="manifest" href="<%= patch + '/manifest.json'%>" />
+<link
+  rel="mask-icon"
+  href="<%= patch + '/safari-pinned-tab.svg'%>"
+  color="#d5ba5b"
+/>
+<meta name="msapplication-TileColor" content="#9f00a7" />
+<meta name="theme-color" content="#ffffff" />
+
+<style type="text/css">
+  html {
+    background-color: white;
+    font-family: 'Source Sans Pro';
+  }
+
+  #body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Source Sans Pro';
+  }
+
+  #main {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .loading {
+    overflow: none;
+    margin: 15em auto;
+    height: 5em;
+    width: 5em;
+    background-color: pink;
+    -webkit-animation: single5 5s infinite linear;
+    animation: single5 5s infinite linear;
+  }
+
+  @-webkit-keyframes single5 {
+    0% {
+      -webkit-transform: perspective(180px) rotateX(0deg) rotateY(0deg) scale(1);
+      -webkit-filter: blur(0);
+      filter: blur(0);
+      background-color: #102a83;
+      border-radius: 0px;
+    }
+    25% {
+      -webkit-transform: perspective(180px) rotateX(-180.1deg) rotateY(0deg)
+        scale(0.8);
+      background-color: #ff0000;
+      -webkit-filter: blur(5px);
+      filter: blur(5px);
+      border-radius: 40%;
+    }
+    50% {
+      -webkit-transform: perspective(180px) rotateX(-180deg) rotateY(179.9deg)
+        scale(1);
+      -webkit-filter: blur(8px);
+      filter: blur(8px);
+      background-color: #ffffff;
+      border-radius: 5%;
+    }
+    75% {
+      -webkit-transform: perspective(180px) rotateX(-360deg) rotateY(179.9deg)
+        scale(0.9);
+      -webkit-filter: blur(5px);
+      filter: blur(5px);
+      background-color: #ff0000;
+      border-radius: 45%;
+    }
+    100% {
+      -webkit-transform: perspective(180px) rotateX(-360deg) rotateY(360deg)
+        scale(1);
+      background-color: #102a83;
+      -webkit-filter: blur(0);
+      filter: blur(0);
+      border-radius: 0px;
+    }
+  }
+
+  @keyframes single5 {
+    0% {
+      -webkit-transform: perspective(180px) rotateX(0deg) rotateY(0deg) scale(1);
+      -webkit-filter: blur(0);
+      filter: blur(0);
+      background-color: #102a83;
+      border-radius: 0px;
+    }
+    25% {
+      -webkit-transform: perspective(180px) rotateX(-180.1deg) rotateY(0deg)
+        scale(0.8);
+      background-color: #ff0000;
+      -webkit-filter: blur(5px);
+      filter: blur(5px);
+      border-radius: 40%;
+    }
+    50% {
+      -webkit-transform: perspective(180px) rotateX(-180deg) rotateY(179.9deg)
+        scale(1);
+      -webkit-filter: blur(8px);
+      filter: blur(8px);
+      background-color: #ffffff;
+      border-radius: 5%;
+    }
+    75% {
+      -webkit-transform: perspective(180px) rotateX(-360deg) rotateY(179.9deg)
+        scale(0.9);
+      -webkit-filter: blur(5px);
+      filter: blur(5px);
+      background-color: #ff0000;
+      border-radius: 45%;
+    }
+    100% {
+      -webkit-transform: perspective(180px) rotateX(-360deg) rotateY(360deg)
+        scale(1);
+      background-color: #102a83;
+      -webkit-filter: blur(0);
+      filter: blur(0);
+      border-radius: 0px;
+    }
+  }
+</style>

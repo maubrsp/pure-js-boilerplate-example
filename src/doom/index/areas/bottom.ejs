@@ -1,0 +1,39 @@
+<% var actions = require("inline-html-withimg-loader!./../../footer") %> <% var
+params = templateParams; var data = [{ label: 'facebook', icon: 'facebook',
+href: './Features' }, { label: 'twitter', icon: 'twitter', href: './Features' },
+{ label: 'google', icon: 'google', href: './google' }, { label: 'pinterest',
+icon: 'pinterest', href: 'http://pinterest.com' } ] %>
+
+<div class="area area-black">
+  <article>
+    <h3>Keep in touch with us</h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac
+      iaculis justo, ac viverra nibh. Suspendisse et tellus in leo efficitur
+      semper. Integer eget lacus dui. Sed ut scelerisque tellus.
+    </p>
+    <div class="botton-email">
+      <form>
+        <input
+          type="email"
+          aria-placeholder="Enter your email to update"
+          placeholder="Enter your email to update"
+          type="text"
+        />
+        <button>
+          SUBMIT
+        </button>
+      </form>
+    </div>
+    <div class="social-buttons" role="complementary">
+      <% data.forEach(function(brand){ %>
+      <a role="button">
+        <svg>
+          <use xlink:href="#<%=brand.icon%>"></use>
+        </svg>
+      </a>
+      <% }); %>
+    </div>
+  </article>
+  <%= actions({}) %>
+</div>

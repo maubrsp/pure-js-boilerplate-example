@@ -1,0 +1,13 @@
+<% 
+var params = templateParams
+var patch = params.patch
+var arr = params.image.src.split(",")
+var src = patch + arr.shift();
+var srcset = arr.join("," + patch);
+var classCss = params.class || "img";
+
+%>
+<div class="<%=classCss%>">
+    <div class="over"></div>
+    <img src="<%=src%>" srcset="<%=srcset%>"/>
+</div>

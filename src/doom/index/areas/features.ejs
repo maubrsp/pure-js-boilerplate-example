@@ -1,0 +1,44 @@
+<% data = [ { icon: "tablet", title: "Fully Responsive", description: "
+Suspendisse interdum eros condimentum, vestibulum quam id, rutrum velit. Proin
+et mi eget turpis volutpat egestas. Sed sit amet mauris ut nulla tempor pretium
+sit amet sed arcu" }, { icon: "lemon", title: "Fully Layered PSD", description:
+" Suspendisse interdum eros condimentum, vestibulum quam id, rutrum velit. Proin
+et mi eget turpis volutpat egestas. Sed sit amet mauris ut nulla tempor pretium
+sit amet sed arcu" }, { icon: "folder", title: "Font Awesome Icons", description:
+" Suspendisse interdum eros condimentum, vestibulum quam id, rutrum velit. Proin
+et mi eget turpis volutpat egestas. Sed sit amet mauris ut nulla tempor pretium
+sit amet sed arcu" }, { icon: "code", title: "HTML5 & CSS3", description:
+" Suspendisse interdum eros condimentum, vestibulum quam id, rutrum velit. Proin
+et mi eget turpis volutpat egestas. Sed sit amet mauris ut nulla tempor pretium
+sit amet sed arcu" }, { icon: "envelope", title: "Email Template", description:
+" Suspendisse interdum eros condimentum, vestibulum quam id, rutrum velit. Proin
+et mi eget turpis volutpat egestas. Sed sit amet mauris ut nulla tempor pretium
+sit amet sed arcu" }, { icon: "bookmark", title: "Free to download", description:
+" Suspendisse interdum eros condimentum, vestibulum quam id, rutrum velit. Proin
+et mi eget turpis volutpat egestas. Sed sit amet mauris ut nulla tempor pretium
+sit amet sed arcu" }, ] %>
+<div class="area area-white">
+  <article>
+    <h3>Tinyone features</h3>
+    <p>
+      Suspendisse interdum eros condimentum, vestibulum quam id, rutrum velit.
+      Proin et mi eget turpis volutpat egestas. Sed sit amet mauris ut nulla
+      tempor pretium sit amet sed arcu
+    </p>
+    <div class="list-features">
+      <% data.forEach(function(item){ %>
+      <section>
+        <svg>
+          <use xlink:href="#<%=item.icon%>"></use>
+        </svg>
+        <div>
+          <h4><%=item.title%></h4>
+          <p><%=item.description%></p>
+        </div>
+      </section>
+      <% }); %>
+
+      </div>
+    </div>
+  </article>
+</div>
