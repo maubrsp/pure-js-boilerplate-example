@@ -22,9 +22,11 @@ let dinamicConfigs = {
   local_url: 'http://localhost',
   local_libs_url: 'http://localhost',
   local_images_url: 'http://localhost:[port]/assets/images/original',
-  homologa_url: 'https://maubrsp-tecdom.netlify.com/',
-  homologa_libs_url: 'https://maubrsp-tecdom.netlify.com/',
-  homologa_images_url: 'https://maubrsp-tecdom.netlify.com/assets/images/',
+  homologa_url: 'https://pure-js-boilerplate-example.netlify.com/',
+  homologa_libs_url: 'https://pure-js-boilerplate-example.netlify.com/',
+  homologa_images_url:
+    'https://pure-js-boilerplate-example.netlify.com/images/',
+  js: './src/libs/pages',
   js: './src/libs/pages',
   html: 'src/doom'
 };
