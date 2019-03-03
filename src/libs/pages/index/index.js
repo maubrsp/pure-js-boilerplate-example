@@ -2,12 +2,20 @@ import '../../../styles/desktop.less';
 import { loadSvg } from './../../core/shortcuts';
 import {
   initializeNavigations,
-  menuObserveScrollChange
+  menuObserveScrollChange,
+  initMenuPosition
 } from './../../core/nav';
 import { initializeFooterInteractions } from './../../core/footer';
 import { initScroll } from '../../core/scroolController';
 import { initResize } from '../../core/resize';
 import { initializeView } from '../../core/initialization';
+import {
+  initializeBanner,
+  animeBanner,
+  show1,
+  hide1,
+  setBannerAutoLoop
+} from '../../core/banner';
 
 window.app = {};
 var firstLoc = window.location.hash;
@@ -24,25 +32,37 @@ window.app.currentPosY = 0;
 window.app.lastPosY = 0;
 window.app.asMenu = false;
 window.app.menuState = 'hidden';
+window.app.bannerSelected = -1;
+window.app.bunnerAniming = false;
+window.app.bunnerDelay = 11500;
 
 window.app.ready = false;
 window.scrollTo(0, 0);
 
 loadSvg()
   .then(resutl => {
+    initializeBanner();
     return initializeNavigations();
   })
   .then(result => {
-    return initializeFooterInteractions();
-  })
-  .then(result => {
+    initMenuPosition();
+    initResize();
     initScroll(document.getElementsByClassName('area-yellow')[0], [
       menuObserveScrollChange
     ]);
-    initResize();
+    return initializeFooterInteractions();
+  })
+  .then(result => {
     return initializeView();
   })
   .then(result => {
-    window.app.ready = true;
+    setTimeout(() => {
+      animeBanner('show', 0, show1, hide1, 350, 100);
+      window.app.ready = true;
+    }, 200);
+
+    setTimeout(() => {
+      setBannerAutoLoop('start', window.app.bunnerDelay);
+    }, 600);
     console.log('initializing...');
   });

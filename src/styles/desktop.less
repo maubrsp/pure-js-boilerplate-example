@@ -19,6 +19,8 @@
 @footerEmailInputWidth: 79%;
 @footerEmailButtonWidth: 18%;
 
+@bannerMarginTop: 7vh;
+
 @headerMenuFontSize: 25px;
 
 @fontSize1: 2.5rem;
@@ -33,7 +35,7 @@ html {
 }
 body {
   min-width: 650px;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 
 .area {
@@ -41,6 +43,7 @@ body {
   width: 100%;
   display: inline-block;
   height: auto;
+  position: relative;
 }
 
 @media all and (max-width: 768px) {
@@ -54,6 +57,10 @@ body {
 
   .area {
     padding: 60px @paddingHorizontal 0px;
+  }
+
+  body {
+    overflow-x: auto;
   }
 
   @import (multiple) './nav.less';

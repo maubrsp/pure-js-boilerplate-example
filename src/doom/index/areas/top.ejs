@@ -3,38 +3,87 @@ href: 'apple' }, { label: 'android', icon: 'android', href: 'android' }, {
 label:'windows', icon: 'windows', href: 'windows' } ] %>
 
 <div class="area area-yellow">
-  <article>
-    <section>
+  <div class="banners">
+    <article class="banner1">
       <div>
-        <h2>Inspire your inspiration</h2>
-        <h4>
-          Simple to use for your app, products showcase and your inspiration
-        </h4>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac
-          iaculis justo, ac viverra nibh. Suspendisse et tellus in leo efficitur
-          semper. Integer eget lacus dui. Sed ut scelerisque tellus.
-        </p>
-        <div class="stores">
-          <% data.forEach(function(brand){ %>
-          <svg class="stores-<%=brand.icon%>">
-            <use xlink:href="#<%=brand.icon%>"></use>
-          </svg>
-          <% }); %>
+        <div class="banner-content">
+          <h2>Inspire your inspiration</h2>
+          <h4>
+            Simple to use for your app, products showcase and your inspiration
+          </h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            ac iaculis justo, ac viverra nibh. Suspendisse et tellus in leo
+            efficitur semper. Integer eget lacus dui. Sed ut scelerisque tellus.
+          </p>
+          <div class="stores">
+            <% data.forEach(function(brand){ %>
+            <svg class="stores-<%=brand.icon%>">
+              <use xlink:href="#<%=brand.icon%>"></use>
+            </svg>
+            <% }); %>
+          </div>
         </div>
       </div>
-    </section>
+    </article>
+    <article class="banner2">
+      <div>
+        <div class="banner-content">
+          <h2>Inspire</h2>
+          <h4>
+            Simple to use for your app, products showcase and your inspiration
+          </h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            ac iaculis justo, ac viverra nibh. Suspendisse et tellus in leo
+            efficitur semper. Integer eget lacus dui. Sed ut scelerisque tellus.
+          </p>
+          <div class="stores">
+            <% data.forEach(function(brand){ %>
+            <svg class="stores-<%=brand.icon%>">
+              <use xlink:href="#<%=brand.icon%>"></use>
+            </svg>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="banner3">
+      <div>
+        <div class="banner-content">
+          <h2>Inspire</h2>
+          <h4>
+            Simple to use for your app, products showcase and your inspiration
+          </h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            ac iaculis justo, ac viverra nibh. Suspendisse et tellus in leo
+            efficitur semper. Integer eget lacus dui. Sed ut scelerisque tellus.
+          </p>
+          <div class="stores">
+            <% data.forEach(function(brand){ %>
+            <svg class="stores-<%=brand.icon%>">
+              <use xlink:href="#<%=brand.icon%>"></use>
+            </svg>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
 
-    <div class="tablet-tynione">
-      <svg preserveAspectRatio="xMinYMin meet" class="tablet-ilustration">
-        <use xlink:href="#ilustration"></use>
-      </svg>
-      <div class="brand">
-        <svg>
-          <use xlink:href="#finger"></use>
+  <div class="tablet-tynione">
+    <div class="svg-container">
+      <div class="svg-content">
+        <svg class="tablet-ilustration">
+          <use xlink:href="#ilustration"></use>
         </svg>
-        <h1>tinyone</h1>
       </div>
     </div>
-  </article>
+  </div>
+  <div class="banners-buttons">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 </div>

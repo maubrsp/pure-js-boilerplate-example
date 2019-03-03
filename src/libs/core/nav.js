@@ -1,4 +1,5 @@
 import anime from 'animejs';
+import { setBannerAutoLoop } from './banner';
 
 /**
  * Initialize listener and effects in navigation, menu and buttons
@@ -10,7 +11,7 @@ export function initializeNavigations() {
     for (let index = 0; index < bts.length; index++) {
       const element = bts[index];
       element.addEventListener('click', event => {
-        console.log('click', index);
+        // console.log('click', index);
       });
 
       prepareTextEffect(element);
@@ -25,18 +26,17 @@ export function initializeNavigations() {
  * @param {Number} posY
  */
 export function menuObserveScrollChange(posY) {
-  console.log(posY);
   const menuState = window.app.menuState;
-  let action = null;
+  let bannerAction = 'start';
   if (posY > -25 && menuState !== 'normal') {
-    console.log('show');
     window.app.menuState = 'normal';
     showMenuEffect();
   } else if (posY < -26 && menuState === 'normal') {
     window.app.menuState = 'fixed';
-    console.log('hide');
     hideMenuEffect();
+    bannerAction = 'stop';
   }
+  setBannerAutoLoop(bannerAction, window.app.bunnerDelay);
 }
 
 export function initMenuPosition() {
@@ -60,8 +60,8 @@ const showMenuEffect = () => {
   const bottonBorder = menu.getElementsByClassName('header-border');
   anime({
     targets: menu,
-    paddingLeft: '10vw',
-    paddingRight: '10vw',
+    paddingLeft: '6vw',
+    paddingRight: '6vw',
     paddingTop: '6vh',
     paddingBottom: '2vh',
     top: 0,
@@ -178,7 +178,6 @@ const menuOverEffect = item => {
       animim = false;
     }
   });
-
   item.addEventListener('mouseover', () => {
     if (animim) return;
     animim = true;

@@ -1,17 +1,16 @@
 import anime from 'animejs';
-import { initMenuPosition, menuObserveScrollChange } from './nav';
+import { menuObserveScrollChange } from './nav';
 
 export function initializeView() {
   return new Promise((resolve, reject) => {
     const prerender = document.getElementsByClassName('preloader')[0];
 
-    initMenuPosition();
     anime({
       targets: prerender,
       duration: 250,
       elasticity: 2,
       opacity: 0,
-      delay: 200,
+      delay: 500,
       complete: () => {
         prerender.parentNode.removeChild(prerender);
         menuObserveScrollChange(0);

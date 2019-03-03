@@ -13,7 +13,7 @@ export function initializeFooterInteractions() {
     for (let index = 0; index < bts.length; index++) {
       const element = bts[index];
       element.addEventListener('click', event => {
-        console.log('click', index);
+        // console.log('click', index);
       });
       menuFooterOverEffect(element);
     }
@@ -25,7 +25,7 @@ export function initializeFooterInteractions() {
     for (let index = 0; index < socialMenus.length; index++) {
       const element = socialMenus[index];
       element.addEventListener('click', event => {
-        console.log('click', index);
+        // console.log('click', index);
       });
       roteateXButtonOverEffect(element, socialAnimation);
     }

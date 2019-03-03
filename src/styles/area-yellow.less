@@ -9,18 +9,41 @@
     fill: @color2;
   }
   article {
-    section {
-      padding: 0px 3vw;
-      div {
+    padding: 0px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    div {
+      color: @color2;
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      white-space: normal;
+      width: 100%;
+      height: 100%;
+      margin-top: @bannerMarginTop*0.5;
+      padding-left: @paddingHorizontal;
+      &::before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        width: 0;
+        /* adjust for white space between pseudo element and next sibling */
+        margin-right: -0.25em;
+        /* stretch line height */
+        height: 100%;
+      }
+      .banner-content {
         width: 50%;
-        padding-top: 15vh;
-        color: @color2;
+        height: auto;
+        padding: 0px;
         h2 {
-          padding: 20px 0px;
           font-size: @fontSize1;
         }
         h4 {
-          padding: 20px 0px;
+          padding: @fontSize1 0px;
           font-size: @fontSize2;
           font-weight: 400;
         }
@@ -29,8 +52,11 @@
         }
         .stores {
           width: 100%;
+          margin: 0px;
+          padding: 0px;
           margin-left: -8px;
-          padding-top: 5vh;
+          padding-top: @fontSize2;
+          text-align: left;
           svg {
             height: 50px;
             width: 70px;
@@ -42,20 +68,75 @@
 
   .tablet-tynione {
     position: absolute;
-    height: 445px;
-    width: 300px;
-    top: 30vh;
-    right: 9vw;
-    .tablet-ilustration {
-      height: 100%;
-    }
-    .brand {
-      position: absolute;
-      top: 205px;
-      left: 60px;
-      h1 {
-        color: @color1;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    right: 0px;
+    .svg-container {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      white-space: normal;
+      width: 100%;
+      height: 22.5vh;
+      margin-top: @bannerMarginTop*0.5;
+      &::before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        width: 0;
+        /* adjust for white space between pseudo element and next sibling */
+        margin-right: -0.25em;
+        /* stretch line height */
+        height: 100%;
+      }
+      .svg-content {
+        width: 50%;
+        height: 62vh;
+        padding: 0px;
+        /* margin-left: 40%; */
+        text-align: right;
+        margin-left: 50%;
+        padding-right: @paddingHorizontal;
+        position: relative;
+        .tablet-ilustration {
+          height: 100%;
+          width: 100%;
+          svg {
+            height: 100%;
+          }
+        }
+        .brand {
+          position: absolute;
+          top: 27.5vh;
+          right: @paddingHorizontal*1.6;
+          text-align: left;
+          h1 {
+            width: 97%;
+            text-align: left;
+            color: @color1;
+          }
+        }
       }
     }
+  }
+}
+
+.banners-buttons {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  height: 16px;
+  left: 0px;
+  text-align: center;
+  div {
+    display: inline-block;
+    border-radius: 8px;
+    background-color: @color3;
+    height: 16px;
+    width: 16px;
+    margin: 0px 1rem;
+    opacity: 0.4;
+    cursor: pointer;
   }
 }

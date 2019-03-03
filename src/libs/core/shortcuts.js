@@ -22,6 +22,27 @@ export function loadSvg() {
   });
 }
 
+export function getInScreen(value) {
+  var elem =
+    document.compatMode === 'CSS1Compat'
+      ? document.documentElement
+      : document.body;
+
+  var height = elem.clientHeight;
+  var width = elem.clientWidth;
+
+  if (value === 'orientation') {
+    return height > width ? 'vertical' : 'horizontal';
+  }
+  if (value === 'isVertical') {
+    return height > width ? true : false;
+  }
+  if (value === 'isHorizontal') {
+    return height > width ? false : true;
+  }
+  return { height: height, width: width };
+}
+
 export function getWheelDelta(event) {
   if (event.wheelDelta) {
     getWheelDelta = event => event.wheelDelta;
