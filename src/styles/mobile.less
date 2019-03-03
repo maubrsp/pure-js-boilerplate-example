@@ -1,8 +1,88 @@
 ﻿@charset "utf-8";
 
-/*reset*/
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900');
 
-// @import './fix.less';
-// @import './nav.less';
+@import './fix.less';
+// @import './vars.less';
 
-// @blue: #102a83;
+@color1: #fcdb00;
+@color2: #232527;
+@color3: #ffffff;
+@color4: #929292;
+
+@paddingHorizontal: 6vw;
+@areaBlackPaddingHorizontal: 3vw;
+
+@footerAdressWidth: 28%;
+@footerButtonsWidth: 70%;
+
+@footerEmailInputWidth: 79%;
+@footerEmailButtonWidth: 18%;
+
+@bannerMarginTop: 7vh;
+
+@listFeaturesItemWidth: 33%;
+
+@headerMenuFontSize: 25px;
+
+@fontSize1: 2.5rem;
+@fontSize2: 1.8rem;
+@fontSize3: 1.5rem;
+@fontSize4: 1.3em;
+@fontSize5: 1.1rem;
+@fontSize6: 1rem;
+
+html {
+  font-family: 'Source Sans Pro';
+}
+body {
+  min-width: 300px;
+  overflow-x: hidden;
+}
+
+.area {
+  min-height: 100vh;
+  width: 100%;
+  display: inline-block;
+  height: auto;
+  position: relative;
+}
+
+@media all and (max-width: 651px) {
+  @paddingHorizontal: 2vw;
+  @areaBlackPaddingHorizontal: 1vw;
+  @footerAdressWidth: 33%;
+  @footerButtonsWidth: 64%;
+  @footerEmailInputWidth: 60%;
+  @footerEmailButtonWidth: 28%;
+  @headerMenuFontSize: 18px;
+  @listFeaturesItemWidth: 99%;
+
+  .area {
+    padding: 60px @paddingHorizontal 0px;
+  }
+
+  body {
+    overflow-x: auto;
+  }
+
+  @import (multiple) './nav.less';
+  @import (multiple) './footer.less';
+  @import (multiple) './area-black.less';
+  @import (multiple) './area-white.less';
+  @import (multiple) './area-yellow.less';
+  @import (multiple) './defaults.less';
+}
+
+@media all and (min-width: 650px) {
+  .area {
+    padding: 60px @paddingHorizontal 0px;
+  }
+
+  @import (multiple) './nav.less';
+  @import (multiple) './footer.less';
+  @import (multiple) './area-black.less';
+  @import (multiple) './area-white.less';
+  @import (multiple) './area-yellow.less';
+  @import (multiple) './defaults.less';
+}
