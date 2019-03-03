@@ -56,6 +56,7 @@ let tmpHash = Math.round(Math.random() * 11111111 + 99999999);
 /*console.log(`argv: ${argv[2]}`);*/
 var production = argv[2] == '-p' ? true : false;
 var dir = './../dev';
+var assetPath = './../assets';
 
 let urls = {
   url: dinamicConfigs.local_url,
@@ -122,7 +123,13 @@ var config = {
     new ExtractTextPlugin('styles/[name].' + tmpHash + '.css'),
 
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new CopyWebpackPlugin([
+      {
+        from: path.join(__dirname, assetPath),
+        to: path.join(__dirname, dir + '/assets')
+      }
+    ])
   ],
 
   devServer: {
