@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config builders/webpack.config.js --inline --open --content-base .",
     "dev": "webpack --config builders/webpack.config.js --progress --colors",
-    "build-homologa": "webpack -p --config builders/webpack.config-homologa.js ",
+    "build-homologa": "svg-sprite --config sprite-config.json assets/images/icons/*.svg && webpack -p --config builders/webpack.config-homologa.js ",
     "image": "webpack-dev-server --config webpack.images.js --inline --open --content-base .",
     "build": "svg-sprite --config sprite-config.json assets/images/icons/*.svg && webpack -p --config builders/webpack.config.js ",
     "sprites": "svg-sprite --config sprite-config.json assets/images/icons/*.svg"
