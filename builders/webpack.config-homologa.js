@@ -16,12 +16,6 @@ try {
 
 let dinamicConfigs = {
   localport: '8080',
-  url: 'https://tecdom.com.br/',
-  libs_url: 'https://tecdom.com.br/',
-  images_url: 'https://tecdom.com.br/',
-  local_url: 'http://localhost',
-  local_libs_url: 'http://localhost',
-  local_images_url: 'http://localhost:[port]/assets/images/original',
   homologa_url: 'https://pure-js-boilerplate-example.netlify.com/',
   homologa_libs_url: 'https://pure-js-boilerplate-example.netlify.com/',
   homologa_images_url:

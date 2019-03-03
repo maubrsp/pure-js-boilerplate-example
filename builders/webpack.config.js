@@ -16,9 +16,9 @@ try {
 
 let dinamicConfigs = {
   localport: '8080',
-  url: 'https://clubebolsa.com.br/1/',
-  libs_url: 'https://clubebolsa.com.br/1/',
-  images_url: 'https://clubebolsa.com.br/1/images/',
+  url: 'http://localhost:8080/1/',
+  libs_url: 'http://localhost:8080/1/',
+  images_url: 'http://localhost:8080/1/images/',
   local_url: 'http://localhost',
   local_libs_url: 'http://localhost:8080/',
   local_images_url: 'http://localhost:8080/assets/images/',
@@ -123,13 +123,13 @@ var config = {
     new ExtractTextPlugin('styles/[name].' + tmpHash + '.css'),
 
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new CopyWebpackPlugin([
-      {
-        from: path.join(__dirname, assetPath),
-        to: path.join(__dirname, dir + '/assets')
-      }
-    ])
+    new webpack.NoEmitOnErrorsPlugin()
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: path.join(__dirname, assetPath),
+    //     to: path.join(__dirname, dir + '/assets')
+    //   }
+    // ])
   ],
 
   devServer: {
