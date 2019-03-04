@@ -7,17 +7,58 @@ import { setBannerAutoLoop } from './banner';
  */
 export function initializeNavigations() {
   return new Promise((resolve, reject) => {
-    let bts = window.app.buttons.getElementsByTagName('a');
+    const bts = window.app.buttons.getElementsByTagName('a');
+
+    const menuOpen = window.app.menu
+      .getElementsByClassName('menu-open-button')[0]
+      .getElementsByTagName('svg')[0];
+    console.log(menuOpen);
+
+    menuOpen.addEventListener('click', event => {
+      // console.log('click', index);
+
+      window.app.asMenu === true
+        ? setMenuState(false, 200, 25)
+        : setMenuState(true, 350, 10);
+    });
+
     for (let index = 0; index < bts.length; index++) {
       const element = bts[index];
-      element.addEventListener('click', event => {
-        // console.log('click', index);
-      });
+      element.addEventListener('click', event => {});
 
       prepareTextEffect(element);
       menuOverEffect(element);
     }
+    setMenuState(false, 0, 0);
     resolve();
+  });
+}
+
+export function setMenuState(opened, time, delay) {
+  window.app.asMenu = opened;
+  console.log('menu estate ::', opened);
+
+  const menuHeight = window.app.menu.getElementsByClassName(
+    'menu-background'
+  )[0].offsetHeight;
+
+  const menuItens = window.app.menu.getElementsByClassName(
+    'header-secondary-menu'
+  )[0];
+
+  anime({
+    targets: menuItens.getElementsByTagName('li'),
+    height: opened ? '2.5rem' : '0rem',
+    duration: time,
+    elasticity: 0,
+    delay: anime.stagger(delay)
+  });
+  anime({
+    targets: menuItens,
+    top: opened ? menuHeight : -200,
+    duration: time,
+    elasticity: 0,
+    delay: delay
   });
 }
 
@@ -65,7 +106,7 @@ const showMenuEffect = () => {
     paddingTop: '6vh',
     paddingBottom: '2vh',
     top: 0,
-    height: 150,
+    height: 132,
     duration: 350,
     elasticity: 0
   });
@@ -95,6 +136,29 @@ const showMenuEffect = () => {
     width: '0%',
     delay: 250,
     elasticity: 0
+  });
+
+  if (window.app.asMenu === false) {
+    return;
+  }
+
+  const menuItens = window.app.menu.getElementsByClassName(
+    'header-secondary-menu'
+  )[0];
+
+  anime({
+    targets: menuItens.getElementsByTagName('li'),
+    height: window.app.asMenu === true ? '2.5rem' : '0rem',
+    duration: 300,
+    elasticity: 0,
+    delay: anime.stagger(10)
+  });
+  anime({
+    targets: menuItens,
+    top: window.app.asMenu === true ? 132 : -170,
+    duration: 300,
+    elasticity: 0,
+    delay: 0
   });
 };
 
@@ -139,6 +203,28 @@ const hideMenuEffect = () => {
     width: '100%',
     delay: 50,
     elasticity: 3
+  });
+
+  if (window.app.asMenu === false) {
+    return;
+  }
+  const menuItens = window.app.menu.getElementsByClassName(
+    'header-secondary-menu'
+  )[0];
+
+  anime({
+    targets: menuItens.getElementsByTagName('li'),
+    height: window.app.asMenu === true ? '2.5rem' : '0rem',
+    duration: 300,
+    elasticity: 0,
+    delay: anime.stagger(20)
+  });
+  anime({
+    targets: menuItens,
+    top: window.app.asMenu === true ? 75 : -170,
+    duration: 300,
+    elasticity: 0,
+    delay: 0
   });
 };
 

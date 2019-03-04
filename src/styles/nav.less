@@ -9,24 +9,122 @@ nav {
   z-index: 99;
   display: inline-block;
   height: auto;
+  .navCenter(@secondaryMenuDisplay);
   .header-border {
     position: absolute;
     width: 100%;
     height: 0px;
     bottom: -1px;
     left: 0px;
-    background-color: @color2;
+    background-color: darken(@color1, 20%);
+  }
+}
+
+.navCenter(@isSecondary) when (@isSecondary = none) {
+  text-align: start;
+}
+
+.navCenter(@isSecondary) when (@isSecondary = block) {
+  text-align: center;
+}
+.menu-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: @color1;
+}
+
+.menu-open-button {
+  display: @secondaryMenuDisplay;
+  position: absolute;
+  height: 100%;
+  width: 50px;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+
+  svg {
+    height: 100%;
+    width: 20px;
+  }
+}
+
+.brand {
+  display: inline-block;
+  height: 60px;
+  width: 12rem;
+  line-height: 60px;
+  svg {
+    display: inline-block;
+    fill: @color4;
+    height: 100%;
+    width: 60px;
+  }
+  h1,
+  span {
+    display: block;
+    line-height: 60px;
+    padding-left: 10px;
+    padding-top: 0px;
+    font-size: @fontSize1*0.8;
+    float: right;
   }
 }
 
 .header-menu {
-  display: block;
+  display: @menuDisplay;
   float: right;
   padding-top: 10px;
   padding-right: 1vw;
   li {
     display: inline-block;
     position: relative;
+    a {
+      color: @color2;
+      font-size: @headerMenuFontSize;
+      font-weight: 900;
+      padding-left: 2vw;
+      position: relative;
+      display: inline-block;
+    }
+    .text-wrapper {
+      position: relative;
+      display: inline-block;
+      padding-top: 0.2em;
+      padding-right: 0.05em;
+      padding-bottom: 0.1em;
+      overflow: hidden;
+    }
+    .letter {
+      display: inline-block;
+      line-height: 1em;
+    }
+  }
+}
+
+.header-secondary-menu {
+  position: absolute;
+  left: 0px;
+  top: -170;
+  display: @secondaryMenuDisplay;
+  height: auto;
+  width: 120%;
+  margin: -10px -@paddingHorizontal*3 @paddingHorizontal*2;
+  padding-top: @paddingHorizontal;
+  padding-bottom: @paddingHorizontal*3;
+  background-color: @color1;
+  border-bottom: 1.5px solid darken(@color1, 20%);
+  z-index: -1;
+  li {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 2rem;
+    padding: @paddingHorizontal*2 @paddingHorizontal*4;
+    text-align: left;
+    overflow: hidden;
     a {
       color: @color2;
       font-size: @headerMenuFontSize;

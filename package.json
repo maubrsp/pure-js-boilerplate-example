@@ -15,7 +15,7 @@
   "author": "maubrsp",
   "license": "ISC",
   "devDependencies": {
-    "animejs": "^2.2.0",
+    "animejs": "^3.0.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-remove-strict-mode": "0.0.2",

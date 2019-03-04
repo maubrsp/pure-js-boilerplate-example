@@ -2,7 +2,14 @@
 './Features' },{ label: 'Support', href: 'http://www.bla.com' },{ label: 'Blog',
 href: 'http://www.bla.com' } ] %>
 
-<nav id="menu">
+<nav id="menu-app">
+  <div class="menu-background"></div>
+
+  <div class="menu-open-button">
+    <svg>
+      <use xlink:href="#menubutton"></use>
+    </svg>
+  </div>
   <div class="brand">
     <svg>
       <use xlink:href="#finger"></use>
@@ -10,6 +17,15 @@ href: 'http://www.bla.com' } ] %>
     <h1>tinyone</h1>
   </div>
   <ul class="header-menu">
+    <% data.forEach(function(button){ %>
+    <li>
+      <a href="<%=button.href%>" class="spacer" target="_blank">
+        <%=button.label%>
+      </a>
+    </li>
+    <% }); %>
+  </ul>
+  <ul class="header-secondary-menu">
     <% data.forEach(function(button){ %>
     <li>
       <a href="<%=button.href%>" class="spacer" target="_blank">

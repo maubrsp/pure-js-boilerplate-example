@@ -21,7 +21,7 @@ window.app = {};
 var firstLoc = window.location.hash;
 
 window.app.loading = document.getElementsByClassName('loading')[0];
-window.app.menu = document.getElementById('menu');
+window.app.menu = document.getElementById('menu-app');
 window.app.buttons = document.getElementsByClassName('header-menu')[0];
 window.app.logo = document.getElementsByClassName('brand')[0];
 
