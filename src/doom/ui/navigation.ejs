@@ -1,13 +1,12 @@
-<% var params = templateParams; var data = [{ label: 'Features', href:
-'./Features' },{ label: 'Support', href: 'http://www.bla.com' },{ label: 'Blog',
-href: 'http://www.bla.com' } ] %>
+<% var params = templateParams; var data = [{ label: 'Features', href: './' },{
+label: 'Support', href: '/.' },{ label: 'Blog', href: '/.' } ] %>
 
 <nav id="menu-app">
   <div class="menu-background"></div>
 
   <div class="menu-open-button">
     <svg>
-      <use xlink:href="#menubutton"></use>
+      <use xlink:href="#menubutton" preserveAspectRatio="xMaxYMin meet"></use>
     </svg>
   </div>
   <div class="brand">
@@ -28,7 +27,7 @@ href: 'http://www.bla.com' } ] %>
   <ul class="header-secondary-menu">
     <% data.forEach(function(button){ %>
     <li>
-      <a href="<%=button.href%>" class="spacer" target="_blank">
+      <a href="<%=button.href%>" class="spacer" target="_self">
         <%=button.label%>
       </a>
     </li>

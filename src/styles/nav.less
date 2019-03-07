@@ -1,10 +1,8 @@
-// @import './vars.less';
-
 nav {
   position: fixed;
   width: 100vw;
   min-height: 30px;
-  padding: 6vh @paddingHorizontal 2vh;
+  padding: @paddingHorizontal*0.3 @paddingHorizontal @paddingHorizontal*0.2;
   background-color: @color1;
   z-index: 99;
   display: inline-block;
@@ -48,13 +46,14 @@ nav {
   svg {
     height: 100%;
     width: 20px;
+    cursor: pointer;
   }
 }
 
 .brand {
   display: inline-block;
   height: 60px;
-  width: 12rem;
+  width: 11.5rem;
   line-height: 60px;
   svg {
     display: inline-block;
@@ -111,18 +110,43 @@ nav {
   display: @secondaryMenuDisplay;
   height: auto;
   width: 120%;
-  margin: -10px -@paddingHorizontal*3 @paddingHorizontal*2;
+  margin: -10px -@paddingHorizontal @paddingHorizontal;
   padding-top: @paddingHorizontal;
-  padding-bottom: @paddingHorizontal*3;
+  padding-bottom: @paddingHorizontal*0.5;
   background-color: @color1;
   border-bottom: 1.5px solid darken(@color1, 20%);
   z-index: -1;
+  // &::before {
+  //   content: '';
+  //   width: 100%;
+  //   height: 100vh;
+  //   top: 100%;
+  //   /* bottom: -100%; */
+  //   left: 0px;
+  //   background-color: darken(@color1, 20%);
+  //   opacity: 0.5;
+  //   display: block;
+  //   z-index: -1;
+  //   position: absolute;
+  // }
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100vh;
+    top: -95vh;
+    /* bottom: -100%; */
+    left: 0px;
+    background-color: @color1;
+    display: block;
+    z-index: -1;
+    position: absolute;
+  }
   li {
     display: inline-block;
     position: relative;
     width: 100%;
     height: 2rem;
-    padding: @paddingHorizontal*2 @paddingHorizontal*4;
+    padding: @paddingHorizontal*0.5 @paddingHorizontal;
     text-align: left;
     overflow: hidden;
     a {

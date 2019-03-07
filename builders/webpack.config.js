@@ -5,7 +5,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanPlugin = require('clean-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-var SpritesmithPlugin = require('webpack-spritesmith');
 
 var argv;
 try {
@@ -50,7 +49,7 @@ pageData.forEach((value, index) => {
     dinamicConfigs.html + '/' + value.id + '/' + value.id + '.mobile.ejs';
 });
 
-jsEntries['prerender'] = './src/libs/' + 'prerender.js';
+// jsEntries['prerender'] = './src/libs/' + 'prerender.js';
 let tmpHash = Math.round(Math.random() * 11111111 + 99999999);
 
 /*console.log(`argv: ${argv[2]}`);*/
@@ -167,7 +166,6 @@ Object.keys(htmlEntries).forEach(function(key) {
   config.plugins.push(new HtmlWebpackPlugin(conf));
 });
 
-//By file name to get the entry file (that is, the number of template files that need to be generated)
 function getEntry(globPath) {
   var files = glob.sync(globPath);
   var entries = {},

@@ -3,14 +3,13 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900');
 
 @import './fix.less';
-// @import './vars.less';
 
 @color1: #fcdb00;
 @color2: #232527;
 @color3: #ffffff;
 @color4: #929292;
 
-@paddingHorizontal: 6vw;
+@paddingHorizontal: 20px;
 @areaBlackPaddingHorizontal: 3vw;
 
 @footerAdressWidth: 28%;
@@ -19,7 +18,7 @@
 @footerEmailInputWidth: 79%;
 @footerEmailButtonWidth: 18%;
 
-@bannerMarginTop: 7vh;
+@bannerMarginTop: 5rem;
 
 @listFeaturesItemWidth: 33%;
 
@@ -28,11 +27,11 @@
 @menuDisplay: block;
 @secondaryMenuDisplay: none;
 
-@fontSize1: 2.5rem;
-@fontSize2: 1.8rem;
-@fontSize3: 1.5rem;
-@fontSize4: 1.3em;
-@fontSize5: 1.1rem;
+@fontSize1: 2.3rem;
+@fontSize2: 1.7rem;
+@fontSize3: 1.4rem;
+@fontSize4: 1.2em;
+@fontSize5: 1.05rem;
 @fontSize6: 1rem;
 
 html {
@@ -52,16 +51,17 @@ body {
 }
 
 @media all and (max-width: 651px) {
-  @paddingHorizontal: 2vw;
+  @paddingHorizontal: 25px;
   @areaBlackPaddingHorizontal: 1vw;
-  @footerAdressWidth: 33%;
-  @footerButtonsWidth: 64%;
-  @footerEmailInputWidth: 60%;
-  @footerEmailButtonWidth: 28%;
+  @footerAdressWidth: 100%;
+  @footerButtonsWidth: 100%;
+  @footerEmailInputWidth: 80%;
+  @footerEmailButtonWidth: 40%;
   @headerMenuFontSize: 18px;
   @listFeaturesItemWidth: 99%;
   @secondaryMenuDisplay: block;
   @menuDisplay: none;
+  @bannerMarginTop: 35px;
 
   .area {
     padding: 60px @paddingHorizontal 0px;
@@ -72,10 +72,10 @@ body {
   }
 
   @import (multiple) './nav.less';
-  @import (multiple) './footer.less';
+  @import (multiple) './footer.mobile.less';
   @import (multiple) './area-black.less';
   @import (multiple) './area-white.less';
-  @import (multiple) './area-yellow.less';
+  @import (multiple) './area-yellow.mobile.less';
   @import (multiple) './defaults.less';
 }
 

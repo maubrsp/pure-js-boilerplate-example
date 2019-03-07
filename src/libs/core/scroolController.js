@@ -1,10 +1,6 @@
 import { getBoundingRect } from './../ui/doom';
 
 export function initScroll(element, observers) {
-  const DELAY = 1;
-  let startY = 0;
-  let scrollTimeout = null;
-
   const scrollMouse = event => {
     if (!window.app || !window.app.ready) {
       window.scrollTo(0, 0);
@@ -13,6 +9,7 @@ export function initScroll(element, observers) {
     informeObservers();
   };
 
+  // TODO implements mobile events ??
   const touchEnd = event => {
     setTimeout(() => {
       informeObservers();

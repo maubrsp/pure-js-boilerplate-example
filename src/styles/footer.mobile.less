@@ -1,0 +1,69 @@
+footer {
+  padding: 0px @areaBlackPaddingHorizontal;
+  margin-bottom: @areaBlackPaddingHorizontal;
+  .footer-container {
+    position: relative;
+    display: inline-block;
+    height: auto;
+    width: 100%;
+    address {
+      font-style: normal;
+      width: @footerAdressWidth;
+      display: inline-block;
+      text-align: left;
+      line-height: 130px;
+      padding-bottom: @areaBlackPaddingHorizontal;
+      span {
+        display: block;
+        line-height: 16px;
+        font-size: @fontSize5;
+      }
+      .address-title {
+        margin-bottom: 6px;
+      }
+      .address-email {
+        margin: 10px 0px;
+      }
+    }
+    .footer-links {
+      width: @footerButtonsWidth;
+      float: right;
+      line-height: 130px;
+      display: inline-block;
+      height: auto;
+      padding-bottom: @areaBlackPaddingHorizontal;
+
+      ul {
+        float: left;
+        display: block;
+        width: 24.2%;
+        li {
+          display: block;
+          line-height: 28px;
+          text-align: left;
+          a {
+            position: relative;
+            color: @color3;
+            font-size: @fontSize5;
+            .button-line {
+              position: absolute;
+              bottom: -6px;
+              right: 0px;
+              height: 1.8px;
+              width: 0%;
+              background-color: @color1;
+            }
+            .mouse-area {
+              position: absolute;
+              top: 0px;
+              left: -6px;
+              bottom: -6px;
+              right: -6px;
+              background-color: rgba(150, 150, 150, 0);
+            }
+          }
+        }
+      }
+    }
+  }
+}

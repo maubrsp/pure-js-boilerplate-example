@@ -1,5 +1,6 @@
 import anime from 'animejs';
 import { getInScreen } from './shortcuts';
+import { getBoundingRect } from '../ui/doom';
 
 export function initializeBanner() {
   var doomElements = getHtmlElements(window.app.bannerSelected);
@@ -18,6 +19,22 @@ export function initializeBanner() {
   for (var i = 0; i < buttons.length; i++) {
     handleButtonClick(i, buttons[i]);
   }
+
+  adjustBannerDimensions();
+}
+
+export function adjustBannerDimensions() {
+  setTimeout(() => {
+    const doomElements = getHtmlElements(window.app.bannerSelected);
+    const bannerDimensiosn = getBoundingRect(
+      doomElements.banners.getElementsByClassName('banner-content')[0]
+    );
+
+    doomElements.container.setAttribute(
+      'style',
+      `height: ${bannerDimensiosn.clientHeight}px;`
+    );
+  }, 500);
 }
 
 const showIten = value => {
@@ -28,6 +45,10 @@ const showIten = value => {
 };
 
 const loopBanner = () => {
+  if (window.app.bannerTimeout && window.app.bannerTimeout === null) {
+    return;
+  }
+
   if (window.app.bunnerAniming === false) {
     showIten(
       window.app.bannerSelected === 2 ? 0 : window.app.bannerSelected + 1
@@ -164,9 +185,7 @@ const getHtmlElements = currentIndex => {
             .getElementsByClassName('area-yellow')[0]
             .getElementsByClassName('banners-buttons')[0]
             .getElementsByTagName('div')[currentIndex],
-    ilustration: document
-      .getElementsByClassName('banners')[0]
-      .getElementsByClassName('tablet-tynione')[0],
+    ilustration: document.getElementsByClassName('tablet-tynione')[0],
     isVertical: getInScreen('isVertical')
   };
 };

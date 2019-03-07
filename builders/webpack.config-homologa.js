@@ -5,7 +5,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanPlugin = require('clean-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-var SpritesmithPlugin = require('webpack-spritesmith');
 
 var argv;
 try {
@@ -45,7 +44,7 @@ pageData.forEach((value, index) => {
     dinamicConfigs.html + '/' + value.id + '/' + value.id + '.mobile.ejs';
 });
 
-jsEntries['prerender'] = './src/libs/' + 'prerender.js';
+// jsEntries['prerender'] = './src/libs/' + 'prerender.js';
 let tmpHash = Math.round(Math.random() * 11111111 + 99999999);
 
 /*console.log(`argv: ${argv[2]}`);*/
@@ -112,7 +111,7 @@ var config = {
     ]
   },
   plugins: [
-    new CleanPlugin([dir]), // 清空目录文件夹
+    new CleanPlugin([dir]),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common'
     }),
@@ -131,7 +130,7 @@ var config = {
 
   devServer: {
     host: 'localhost',
-    port: dinamicConfigs.localport, //端口
+    port: dinamicConfigs.localport,
     inline: true,
     hot: false
   }
@@ -153,18 +152,16 @@ Object.keys(htmlEntries).forEach(function(key) {
     chunks: ['common', key]
     //minify: true,
     /*
-  ,
-      minify: { //压缩HTML文件
-  	removeComments: false,//移除HTML中的注释
-  	collapseWhitespace: false, //删除空白符与换行符
-  	removeAttributeQuotes: false // 移除属性的引号
+      minify: {
+  	removeComments: false,
+  	collapseWhitespace: false, 
+  	removeAttributeQuotes: false 
   }
   */
   };
   config.plugins.push(new HtmlWebpackPlugin(conf));
 });
 
-//By file name to get the entry file (that is, the number of template files that need to be generated)
 function getEntry(globPath) {
   var files = glob.sync(globPath);
   var entries = {},

@@ -20,15 +20,21 @@ export function getBoundingRect(element) {
   };
 
   var rect = element.getBoundingClientRect();
+
   rect = {
     left: rect.left - margin.left,
     right: rect.right - margin.right - padding.left - padding.right,
-    top: rect.top - margin.top,
+    top: rect.top - margin.top || element.offsetTop,
     bottom:
-      rect.bottom - margin.bottom - padding.top - padding.bottom - border.bottom
+      rect.bottom -
+      margin.bottom -
+      padding.top -
+      padding.bottom -
+      border.bottom,
+    height: rect.height,
+    clientHeight: element.clientHeight
   };
   rect.width = rect.right - rect.left;
-  rect.height = rect.bottom - rect.top;
 
   return rect;
 }

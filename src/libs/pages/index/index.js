@@ -64,5 +64,4 @@ loadSvg()
     setTimeout(() => {
       setBannerAutoLoop('start', window.app.bunnerDelay);
     }, 600);
-    console.log('initializing...');
   });

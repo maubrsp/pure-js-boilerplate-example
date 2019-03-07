@@ -34,6 +34,11 @@ params.production %>
       var device = deviceDetectorInitializer();
       var isMobile = device.type === "phone";
 
+      window.deviceData = {
+        device: device,
+        isMobile: isMobile
+      }
+
     //   <%= "'" + flibs_url + "'" %>
       var production = <%= "'" + fproduction + "'" %>
       deps = deps.split(',')

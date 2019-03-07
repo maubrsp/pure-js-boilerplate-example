@@ -1,5 +1,6 @@
 import anime from 'animejs';
 import { setBannerAutoLoop } from './banner';
+import { getInScreen } from './shortcuts';
 
 /**
  * Initialize listener and effects in navigation, menu and buttons
@@ -12,11 +13,8 @@ export function initializeNavigations() {
     const menuOpen = window.app.menu
       .getElementsByClassName('menu-open-button')[0]
       .getElementsByTagName('svg')[0];
-    console.log(menuOpen);
 
     menuOpen.addEventListener('click', event => {
-      // console.log('click', index);
-
       window.app.asMenu === true
         ? setMenuState(false, 200, 25)
         : setMenuState(true, 350, 10);
@@ -29,18 +27,17 @@ export function initializeNavigations() {
       prepareTextEffect(element);
       menuOverEffect(element);
     }
-    setMenuState(false, 0, 0);
-    resolve();
+    setTimeout(() => {
+      setMenuState(false, 1, 1);
+    }, 400);
+    setTimeout(() => {
+      resolve();
+    }, 600);
   });
 }
 
 export function setMenuState(opened, time, delay) {
   window.app.asMenu = opened;
-  console.log('menu estate ::', opened);
-
-  const menuHeight = window.app.menu.getElementsByClassName(
-    'menu-background'
-  )[0].offsetHeight;
 
   const menuItens = window.app.menu.getElementsByClassName(
     'header-secondary-menu'
@@ -55,7 +52,7 @@ export function setMenuState(opened, time, delay) {
   });
   anime({
     targets: menuItens,
-    top: opened ? menuHeight : -200,
+    top: opened ? 75 : -180,
     duration: time,
     elasticity: 0,
     delay: delay
@@ -68,16 +65,19 @@ export function setMenuState(opened, time, delay) {
  */
 export function menuObserveScrollChange(posY) {
   const menuState = window.app.menuState;
-  let bannerAction = 'start';
+  let bannerAction = null;
   if (posY > -25 && menuState !== 'normal') {
     window.app.menuState = 'normal';
     showMenuEffect();
+    bannerAction = 'start';
   } else if (posY < -26 && menuState === 'normal') {
     window.app.menuState = 'fixed';
     hideMenuEffect();
     bannerAction = 'stop';
   }
-  setBannerAutoLoop(bannerAction, window.app.bunnerDelay);
+  if (bannerAction !== null) {
+    setBannerAutoLoop(bannerAction, window.app.bunnerDelay);
+  }
 }
 
 export function initMenuPosition() {
@@ -103,10 +103,19 @@ const showMenuEffect = () => {
     targets: menu,
     paddingLeft: '6vw',
     paddingRight: '6vw',
-    paddingTop: '6vh',
-    paddingBottom: '2vh',
+    paddingTop:
+      window.deviceData.isMobile && getInScreen('').width < 650 === true
+        ? '10px'
+        : '6vh',
+    paddingBottom:
+      window.deviceData.isMobile && getInScreen('').width < 650 === true
+        ? '10px'
+        : '2vh',
     top: 0,
-    height: 132,
+    height:
+      window.deviceData.isMobile && getInScreen('').width < 650 === true
+        ? 80
+        : 132,
     duration: 350,
     elasticity: 0
   });
@@ -155,7 +164,7 @@ const showMenuEffect = () => {
   });
   anime({
     targets: menuItens,
-    top: window.app.asMenu === true ? 132 : -170,
+    top: window.app.asMenu === true ? 60 : -170,
     duration: 300,
     elasticity: 0,
     delay: 0
@@ -221,7 +230,7 @@ const hideMenuEffect = () => {
   });
   anime({
     targets: menuItens,
-    top: window.app.asMenu === true ? 75 : -170,
+    top: window.app.asMenu === true ? 60 : -170,
     duration: 300,
     elasticity: 0,
     delay: 0

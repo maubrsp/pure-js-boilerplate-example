@@ -1,18 +1,10 @@
+import { adjustBannerDimensions } from './banner';
+
 export function initResize() {
   const onResize = event => {
-    topAreaPosition();
+    adjustBannerDimensions();
   };
 
-  const topAreaPosition = () => {
-    const area = document.getElementsByClassName('area-white')[0];
-    //TODO
-  };
-  const bottonAreaPosition = () => {
-    //TODO
-  };
-  const featuresAreaPosition = () => {
-    //TODO
-  };
   window.onresize = onResize;
 
   setTimeout(() => {

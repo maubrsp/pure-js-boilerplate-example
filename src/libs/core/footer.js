@@ -12,9 +12,7 @@ export function initializeFooterInteractions() {
 
     for (let index = 0; index < bts.length; index++) {
       const element = bts[index];
-      element.addEventListener('click', event => {
-        // console.log('click', index);
-      });
+      element.addEventListener('click', event => {});
       menuFooterOverEffect(element);
     }
 
@@ -24,9 +22,7 @@ export function initializeFooterInteractions() {
 
     for (let index = 0; index < socialMenus.length; index++) {
       const element = socialMenus[index];
-      element.addEventListener('click', event => {
-        // console.log('click', index);
-      });
+      element.addEventListener('click', event => {});
       roteateXButtonOverEffect(element, socialAnimation);
     }
 
@@ -41,11 +37,9 @@ export function initializeFooterInteractions() {
 }
 
 const submitAnimation = (hover, btn) => {
-  var newColor = hover === true ? '#fcdb00' : '#ffffff';
   anime({
     targets: btn,
     duration: 400,
-    // backgroundColor: newColor,
     rotateX: [-80, 0],
     elasticity: 1
   });
