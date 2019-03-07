@@ -1,0 +1,93 @@
+// @import './vars.less';
+
+.area-yellow {
+  color: @color2;
+  background-color: @color1;
+  padding-top: 150px;
+
+  svg {
+    fill: @color2;
+  }
+  article {
+    padding: 0px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    div {
+      color: @color2;
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      white-space: normal;
+      width: 100%;
+      height: 100%;
+      margin-top: @bannerMarginTop;
+      padding-left: @paddingHorizontal;
+      &::before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        width: 0;
+        /* adjust for white space between pseudo element and next sibling */
+        margin-right: -0.25em;
+        /* stretch line height */
+        height: 100%;
+      }
+      .banner-content {
+        width: 100%;
+        height: auto;
+        padding: 0px @paddingHorizontal;
+        padding-bottom: @bannerMarginTop;
+
+        h2 {
+          font-size: @fontSize1 * 0.8;
+        }
+        h4 {
+          padding: @fontSize1* 0.3 0px;
+          font-size: @fontSize2 * 0.8;
+          font-weight: 400;
+        }
+        p {
+          font-size: @fontSize4;
+        }
+        .stores {
+          width: 100%;
+          margin: 0px;
+          padding: 0px;
+          margin-left: -8px;
+          padding-top: @fontSize2;
+          text-align: left;
+          svg {
+            height: 40px;
+            width: 50px;
+          }
+        }
+      }
+    }
+  }
+
+  .tablet-tynione {
+    display: none;
+  }
+}
+
+.banners-buttons {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  height: 16px;
+  left: 0px;
+  text-align: center;
+  div {
+    display: inline-block;
+    border-radius: 8px;
+    background-color: @color3;
+    height: 16px;
+    width: 16px;
+    margin: 0px 1rem;
+    opacity: 0.4;
+    cursor: pointer;
+  }
+}
