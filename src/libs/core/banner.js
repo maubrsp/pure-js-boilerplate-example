@@ -34,6 +34,15 @@ export function adjustBannerDimensions() {
       'style',
       `height: ${bannerDimensiosn.clientHeight}px;`
     );
+
+    if (window.deviceData.isMobile === true) {
+      doomElements.ilustration.setAttribute(
+        'style',
+        `top: ${(bannerDimensiosn.clientHeight -
+          getInScreen('').height * 0.62) *
+          0.5}px;`
+      );
+    }
   }, 500);
 }
 
